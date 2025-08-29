@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom tokens for non-Tailwind bits */
+:root{
+  --delura-maroon:#6b1f2a;--delura-raspberry:#b85c7a;--delura-ivory:#f8f5f0;
+  --delura-ink:#111827;--delura-muted:#374151;--rose-900:#881337;--rose-800:#9f1239;--rose-700:#be123c;--rose-100:#ffe4e6;
+}
+html,body,#root{height:100%;background:var(--delura-ivory)}
+.btn{border-radius:9999px;padding:.75rem 1.25rem;display:inline-block}
+.btn-primary{color:white;background-image:linear-gradient(90deg,var(--rose-900),var(--rose-700))}
+.btn-outline{color:white;border:2px solid rgba(255,255,255,.95);background:transparent}
+.wordmark{font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; font-style: italic; letter-spacing:.04em}
+.tagline{font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; font-style: italic}
+.navlink{color:#fbe9ed;text-decoration:none;margin:0 1.5rem;}
+.navlink.active{border-bottom:2px solid #fbe9ed;padding-bottom:.25rem}
+.card{background:rgba(255,255,255,.95);backdrop-filter:saturate(1.2) blur(6px);border:1px solid #f3dadd;border-radius:1.5rem;box-shadow:0 10px 30px rgba(136,19,55,.08)}
+.container{max-width:1200px;margin:0 auto;padding:0 1rem}
