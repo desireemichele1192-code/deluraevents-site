@@ -4,7 +4,7 @@ import { Resend } from 'resend';
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).send('Method Not Allowed');
   try {
-    const body = req.body || {};
+const body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
     // honeypot
     if (body.website) return res.status(200).json({ ok: true, skipped: 'honeypot' });
 
