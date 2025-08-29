@@ -1,5 +1,26 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
+function PraisePage(){
+  const quotes = [
+    { q: "They anticipated every detail—our guests are still talking about the tasting dinner.", n: "A. Morgan", t: "Delura Table" },
+    { q: "Calm, precise, joyful. Our wedding day felt effortless.", n: "R. Patel", t: "Delura Events" },
+    { q: "The room transformation was beyond what we imagined—warm, modern, timeless.", n: "J. & L. Ortiz", t: "Delura Studios" },
+  ];
+  return (
+    <>
+      <Hero title="Praise" ctas={false}/>
+      <section className="container mt-12 grid gap-6 sm:grid-cols-3">
+        {quotes.map((x,i)=>(
+          <blockquote key={i} className="card p-6">
+            <div className="text-lg font-serif mb-3" style={{color:"var(--delura-ink)"}}>“{x.q}”</div>
+            <div className="text-sm" style={{color:"var(--delura-muted)"}}>{x.n} • {x.t}</div>
+          </blockquote>
+        ))}
+      </section>
+      <Footer/>
+    </>
+  );
+}
 
 /**
  * DELURA – Multi‑page site
