@@ -57,8 +57,7 @@ function PraisePage(){
 
       {/* Lower the text + keep left-aligned */}
       <div className="relative container pt-[18rem] sm:pt-[20rem] pb-16">
-        <h1 className="tagline text-white/95 text-5xl sm:text-7xl leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.45)]" style="
-    padding-top: 3em;"> 
+        <h1 className="tagline text-white/95 text-5xl sm:text-7xl leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.45)]"> 
           {title}
         </h1>
         {ctas && (
