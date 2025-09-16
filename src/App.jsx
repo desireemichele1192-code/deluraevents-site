@@ -1,14 +1,23 @@
+// src/pages/PraisePage.jsx
 import React from "react";
-import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
-function PraisePage(){
-  const quotes = [
-    { q: "They anticipated every detail—our guests are still talking about the tasting dinner.", n: "A. Morgan", t: "Delura Table" },
-    { q: "Calm, precise, joyful. Our wedding day felt effortless.", n: "R. Patel", t: "Delura Events" },
-    { q: "The room transformation was beyond what we imagined—warm, modern, timeless.", n: "J. & L. Ortiz", t: "Delura Studios" },
-  ];
+import { Link } from "react-router-dom";
+
+/** Optional simple nav (remove if you already have a site-wide Nav) */
+function Nav() {
   return (
-    <>
-   function Hero({ title = "Where Taste Meets Timeless", ctas = true }) {
+    <header className="absolute inset-x-0 top-0 z-10">
+      <div className="container flex items-center justify-between py-4">
+        <Link to="/" className="font-semibold text-white/90">Delura</Link>
+        <nav className="flex gap-6">
+          <a href="#brands" className="text-white/80 hover:text-white">Brands</a>
+          <Link to="/contact" className="text-white/80 hover:text-white">Contact</Link>
+        </nav>
+      </div>
+    </header>
+  );
+}
+
+function Hero({ title = "Where Taste Meets Timeless", ctas = true }) {
   // Swap these with your final brand images later
   const images = React.useMemo(
     () => [
@@ -19,18 +28,19 @@ function PraisePage(){
       "https://images.unsplash.com/photo-1526045612212-70caf35c14df?q=80&w=2000&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1528605105345-5344ea20e269?q=80&w=2000&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1528697203043-733bfdca10a0?q=80&w=2000&auto=format&fit=crop"
+      "https://images.unsplash.com/photo-1528697203043-733bfdca10a0?q=80&w=2000&auto=format&fit=crop",
     ],
     []
   );
 
   const [idx, setIdx] = React.useState(0);
+
   React.useEffect(() => {
     const t = setInterval(() => setIdx((i) => (i + 1) % images.length), 8000);
     return () => clearInterval(t);
   }, [images.length]);
 
-  // Single layered background (image + raspberry gradient) avoids the gray banding
+  // Single layered background (image + raspberry gradient)
   const bgStyle = {
     backgroundImage: `
       linear-gradient(
@@ -49,13 +59,10 @@ function PraisePage(){
   return (
     <section className="relative h-[640px] overflow-hidden">
       <div className="absolute inset-0" style={bgStyle} />
-
-      {/* (Optional) remove this next line entirely if you want ZERO bottom tint */}
+      {/* Optional bottom tint; remove if you want zero tint */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-rose-800/15 via-rose-700/8 to-transparent" />
-
       <Nav />
-
-      {/* Lower the text + keep left-aligned */}
+      {/* Hero copy */}
       <div className="relative container pt-[18rem] sm:pt-[20rem] pb-16">
         <h1 className="tagline text-white/95 text-5xl sm:text-7xl leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.45)]">
           {title}
@@ -70,4 +77,32 @@ function PraisePage(){
     </section>
   );
 }
- 
+
+function PraisePage() {
+  const quotes = [
+    { q: "They anticipated every detail—our guests are still talking about the tasting dinner.", n: "A. Morgan", t: "Delura Table" },
+    { q: "Calm, precise, joyful. Our wedding day felt effortless.", n: "R. Patel", t: "Delura Events" },
+    { q: "The room transformation was beyond what we imagined—warm, modern, timeless.", n: "J. & L. Ortiz", t: "Delura Studios" },
+  ];
+
+  return (
+    <>
+      <Hero />
+      <section className="container py-16" id="brands">
+        <h2 className="text-2xl font-semibold mb-6">Praise</h2>
+        <ul className="grid gap-6 md:grid-cols-3">
+          {quotes.map(({ q, n, t }, i) => (
+            <li key={i} className="rounded-2xl bg-white p-6 shadow">
+              <p className="text-gray-800">{q}</p>
+              <p className="mt-4 text-sm text-gray-500">
+                — {n}, <span className="italic">{t}</span>
+              </p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </>
+  );
+}
+
+export default PraisePage;
