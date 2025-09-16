@@ -12,7 +12,7 @@ html,body,#root{height:100%;background:var(--delura-ivory)}
 .btn-primary{color:white;background-image:linear-gradient(90deg,var(--rose-900),var(--rose-700))}
 .btn-outline{color:white;border:2px solid rgba(255,255,255,.95);background:transparent}
 .wordmark{font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; font-style: italic; letter-spacing:.04em}
-.tagline{font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; font-style: italic}
+.tagline{font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; font-style: italic; padding-top:3em}
 .navlink{color:#fbe9ed;text-decoration:none;margin:0 1.5rem;}
 .navlink.active{border-bottom:2px solid #fbe9ed;padding-bottom:.25rem}
 .card{background:rgba(255,255,255,.95);backdrop-filter:saturate(1.2) blur(6px);border:1px solid #f3dadd;border-radius:1.5rem;box-shadow:0 10px 30px rgba(136,19,55,.08)}
